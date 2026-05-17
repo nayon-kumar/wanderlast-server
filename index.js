@@ -25,6 +25,7 @@ async function run() {
 
     const db = client.db("wonderlast");
     const destinationCollection = db.collection("destinations");
+    const bookingsCollection = db.collection("bookings");
 
     app.get("/destination", async (req, res) => {
       const result = await destinationCollection.find().toArray();
