@@ -102,7 +102,7 @@ async function run() {
       res.json(result);
     });
 
-    app.delete("/bookings/:bookingId", async (req, res) => {
+    app.delete("/bookings/:bookingId", verifyToken, async (req, res) => {
       const bookingId = req.params.bookingId;
       const result = await bookingsCollection.deleteOne({
         _id: new ObjectId(bookingId),
