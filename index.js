@@ -62,7 +62,7 @@ async function run() {
       res.json(result);
     });
 
-    app.post("/destination", async (req, res) => {
+    app.post("/destination", verifyToken, async (req, res) => {
       const newDestination = req.body;
       const result = await destinationCollection.insertOne(newDestination);
       res.json(result);
